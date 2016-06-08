@@ -14,7 +14,7 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
     private final String TAG = MainActivity.this.getClass().getSimpleName();
     private Button btn;
-    private EditText edt_name,edt_phone,edt_email,edt_surname;
+    private EditText edt_name, edt_phone, edt_email, edt_surname;
     private TextView txt_time;
     private Calendar startTime;
 
@@ -35,22 +35,22 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,Main2Activity.class);
-                intent.putExtra("name",edt_name.getText().toString());
-                intent.putExtra("surname",edt_surname.getText().toString());
-                intent.putExtra("phone",edt_phone.getText().toString());
-                intent.putExtra("email",edt_email.getText().toString());
-                startActivity(intent);
+                DataCarrierObject object = new DataCarrierObject(edt_name.getText().toString()
+                        , edt_surname.getText().toString()
+                        , edt_phone.getText().toString()
+                        , edt_email.getText().toString());
 
+                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                intent.putExtra("data",object);
+                startActivity(intent);
             }
         });
 
 
         Log.d("LifeCycleDebug", "--------onCreate--------");
-        if(savedInstanceState != null) {
+        if (savedInstanceState != null) {
             startTime = (Calendar) savedInstanceState.getSerializable("calendar");
-        }
-        else
+        } else
             startTime = Calendar.getInstance();
 
 
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         Log.d("LifeCycleDebug", "--------onSaveInstanceState--------");
-        outState.putSerializable("calendar",startTime);
+        outState.putSerializable("calendar", startTime);
 
     }
 

@@ -10,14 +10,9 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-
         txt_info = (TextView)findViewById(R.id.txt_info);
 
-        String name = getIntent().getExtras().getString("name");
-        String surname = getIntent().getExtras().getString("surname");
-        String email = getIntent().getExtras().getString("email");
-        String phone = getIntent().getExtras().getString("phone");
-
-        txt_info.setText(name + " " + surname + " " + phone + " " + email );
+        DataCarrierObject object = (DataCarrierObject) getIntent().getExtras().get("data");
+        txt_info.setText(object.getName()+ " " + object.getSurname() + " " + object.getPhone() + " " + object.getEmail());
     }
 }
