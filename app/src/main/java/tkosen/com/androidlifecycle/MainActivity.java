@@ -19,19 +19,6 @@ public class MainActivity extends AppCompatActivity {
     private Calendar startTime;
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d(TAG, "onResume");
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.d(TAG, "onStart");
-    }
-
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -99,6 +86,18 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onDestroy");
     }
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG, "onStart");
+    }
 
 
 //    06-05 16:14:35.602 18005-18005/com.tkosen.activtylifecycle D/MainActivity: onCreate
