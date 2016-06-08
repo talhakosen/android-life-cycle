@@ -6,10 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
     private final String TAG = MainActivity.this.getClass().getSimpleName();
     private Button btn;
+    private EditText edt_name,edt_phone,edt_email,edt_surname;
+    
 
     @Override
     protected void onResume() {
@@ -32,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
 
         btn = (Button) findViewById(R.id.btn);
 
+        edt_name = (EditText) findViewById(R.id.edt_name);
+        edt_surname = (EditText) findViewById(R.id.edt_surname);
+        edt_email = (EditText) findViewById(R.id.edt_email);
+        edt_phone = (EditText) findViewById(R.id.edt_phone);
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
                 alertDialog.show();
             }
         });
+
+
     }
 
     @Override
