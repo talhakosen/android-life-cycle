@@ -1,7 +1,7 @@
 package tkosen.com.androidlifecycle;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -35,10 +35,13 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
-                AlertDialog alertDialog = alertDialogBuilder.create();
-                alertDialog.setTitle("Test");
-                alertDialog.show();
+                Intent intent = new Intent(MainActivity.this,Main2Activity.class);
+                intent.putExtra("name",edt_name.getText().toString());
+                intent.putExtra("surname",edt_surname.getText().toString());
+                intent.putExtra("phone",edt_phone.getText().toString());
+                intent.putExtra("email",edt_email.getText().toString());
+                startActivity(intent);
+
             }
         });
 

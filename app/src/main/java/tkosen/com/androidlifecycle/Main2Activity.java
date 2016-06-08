@@ -13,5 +13,11 @@ public class Main2Activity extends AppCompatActivity {
 
         txt_info = (TextView)findViewById(R.id.txt_info);
 
+        String name = getIntent().getExtras().getString("name");
+        String surname = getIntent().getExtras().getString("surname");
+        String email = getIntent().getExtras().getString("email");
+        String phone = getIntent().getExtras().getString("phone");
+
+        txt_info.setText(name + " " + surname + " " + phone + " " + email );
     }
 }
